@@ -1,0 +1,33 @@
+.contact_us_container{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+.contact_us{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.contact_us input{
+    margin-bottom: 10px;
+    height: 26px;
+    font-size: 22px;
+}
+.contact_us textarea{
+    width: 99%;
+}
+.send_mail_btn{
+    width: 100%;
+    background-color: #1378f6;
+    height: 34px;
+    font-size: 22px;
+    color: white;
+    border: 0px;
+    border-radius: 3px 3px 3px 3px;
+}
+.connect_with_us{
+    width: 100%;
+    margin:0 auto;
+    text-align: center;
+    margin:0;
+    padding: 0;
+}

@@ -1,0 +1,15 @@
+.navbar_custom{
+    height: 100px;
+    width: 150px;
+    float: left;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navbar_post{
+    float:right
+}

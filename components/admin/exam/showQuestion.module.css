@@ -1,0 +1,21 @@
+.show_question{
+    width: 600px;
+    padding: 30px;
+    border: 0.5px solid grey;
+}
+
+
+.show_question_passage_txt{
+    display: flex;
+}
+
+.show_question_passage{
+    float: left;
+}
+
+.show_question_edit_btn{
+    float:right
+}
+.question{
+    display:flex;
+}

@@ -1,0 +1,13 @@
+.question{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: fit-content;
+    min-height: 200px;
+    margin-bottom: 60px;
+}
+.question_finished{
+    justify-content: center;
+    align-items: center;
+}

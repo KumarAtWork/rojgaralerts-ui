@@ -1,0 +1,13 @@
+.login{
+  float:right;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+}
+
+.post_employment_sec{
+display: flex;
+flex-direction: row;
+border:0.5px solid green;
+}

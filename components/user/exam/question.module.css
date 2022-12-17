@@ -1,0 +1,12 @@
+.question_options{
+text-align: left;
+justify-content: left;
+display: flex;
+flex-direction: column;   
+}
+.btn_left{
+    float: left;
+}
+.btn_right{
+    float:right;
+}

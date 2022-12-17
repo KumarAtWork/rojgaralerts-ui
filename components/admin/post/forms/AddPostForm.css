@@ -1,0 +1,23 @@
+.form_container{
+    flex-direction: column;
+    line-height: 2;
+  }
+.form_container input{
+    font-size: 20px;
+  }
+  .form_container textarea{
+    font-size: 20px;
+  }
+  .form_container label{
+    size: 5;
+    font-size: 20px;
+  }
+
+  .form_buttons{
+    display: flex;
+    margin-top: 5%;
+    gap:30px;
+  }
+
+
+  

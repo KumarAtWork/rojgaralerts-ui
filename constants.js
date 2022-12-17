@@ -1,0 +1,7 @@
+export const image_root_dir = 'https://storage.codefast.tech'
+//export const NEWSPOST_HOST = 'https://nodejs-api.sarkaariexams.com'
+//export const SARKAARIEXAMS_HOST = 'https://spring-boot-api.sarkaariexams.com' 
+export const NEWSPOST_HOST = 'http://localhost:8082'
+export const SARKAARIEXAMS_HOST = 'http://localhost:8081' 
+//export const GOOGLE_RECAPTCHA_SITE_KEY= '6LciaDcjAAAAAMbyx01z7LdFn4soa3I-S9WNv6dy'
+export const GOOGLE_RECAPTCHA_SITE_KEY='6Lf3GjkjAAAAAEu4kyomzf7mkl4lerBSkTNnefGR'

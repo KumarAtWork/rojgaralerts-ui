@@ -1,0 +1,108 @@
+.news_post_details{
+    width:100%;
+}
+.headline{
+    padding-top: 20px;
+    padding-bottom: 35px;
+}
+.headline_title{
+   text-transform: capitalize;
+   font-size: 34px;
+   line-height: 38px;
+   margin: 12px 0 8px;
+}
+.headline_title_meta{
+    font-size: 12px;
+    font-weight: 300;
+}
+.paragraphs{
+    padding: 2%;
+    width:100%
+}
+
+.headline_img{
+    width: inherit;
+    height: 300px;
+    position: relative;
+
+}
+
+.highlights{
+    padding: 0.1%;
+    background-color: antiquewhite;
+    height: auto;
+}
+.highlight_list{
+    list-style-type: disclosure-closed;
+}
+.highlights p{
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.para_image{
+    width: 50%;
+    height: 200px;
+    position: relative;
+    
+}
+.para_body{
+    font-size: 19px;
+    margin-bottom: 0;
+    color: black;
+    line-height: 1.8rem;
+    font-weight: 400;
+}
+
+.trending_jobs{
+    width: inherit;
+}
+.trending_jobs h3{
+padding-left: 2%;
+}
+.other_news_posts{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+@media (min-width: 768px){
+    .paragraphs{
+        width:600px;
+    }
+    .news_headline_container{
+        display: flex;
+    
+    }
+    .news_headline_box{
+        width: 70%;
+    }
+    .trending_jobs{
+        width: 28%;
+        padding: 0.1%;
+        padding-left: 2%;
+    }
+    .headline_img{
+        width: auto;
+        height: 300px;
+    }
+    .highlights{
+        width: auto;
+    }
+    .news_body{
+        width: auto;
+        height: auto;
+    }
+    .job_body{
+        width: 400px;
+        height: auto;
+    }
+    .other_news_posts{
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .other_news_body{
+        width: 410px;
+        margin: 7px;
+    }
+}

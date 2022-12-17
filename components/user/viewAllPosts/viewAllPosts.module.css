@@ -1,0 +1,32 @@
+.view_all_post{
+    height: auto;
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: grid;
+}
+
+.view_more{
+    width: -webkit-fill-available;
+    border: 0px;
+    height: 34px;
+    color: white;
+    background: #077df1;
+    border-radius: 1rem;
+}
+@media (min-width:468px) {
+    .view_all_post{ 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+}
+
+@media (min-width:718px) {
+    .view_all_post{ 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .view_more_div{
+        margin: 0 auto;
+        width: 155px;
+    }
+}

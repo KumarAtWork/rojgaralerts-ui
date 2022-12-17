@@ -1,0 +1,18 @@
+.exam_detail label{
+padding:10px;
+font-weight: 600;
+font-size: 22px;
+}
+
+.exam_detail span{
+font-weight: 300;
+font-size: 22px;
+}
+
+.table{
+    width: 500px;
+
+}
+.table tr{
+    height: 40px;
+}

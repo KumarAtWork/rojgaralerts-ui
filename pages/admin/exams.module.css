@@ -1,0 +1,11 @@
+.table{
+    width: 100%;
+}
+.table tr{
+    padding: 5px;
+    height: 40px;
+}
+
+.table tr th{
+    text-align: left;
+}
