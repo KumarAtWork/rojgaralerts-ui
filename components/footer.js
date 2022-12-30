@@ -8,20 +8,15 @@ const Footer = () => {
         <div className={styles.footer_container_main}>
         <div className={styles.footer_rows}>
           <div className={styles.footer_rows_items}>
-            <Image
-              className={styles.logo}
-              src="/logo.png"
-              width={110}
-              height={55}
-            ></Image>
-            <p className={styles.footer_text}>SarkaariExams.com</p>
-            <p className={styles.footer_text}>
-              India's no.1 site for Government Jobs Preparation
-            </p>
+           <div className={styles.logo_main}>
+            <span className={styles.logo_txt}>Sarkarimail.com</span>
+            <span className={styles.slogan_txt}>India's no. 1 Job Listing Site</span>
+           </div>
           </div>
           <div className={styles.footer_rows_items}>
-            <p className={styles.footer_text}><Link href="/">Latest Posts</Link></p>
-            <p className={styles.footer_text}>Practice Online</p>
+            <p className={styles.footer_text}><Link href="/">Latest Jobs</Link></p>
+            <p className={styles.footer_text}>Results</p>
+            <p className={styles.footer_text}>Educations</p>
             <p className={styles.footer_text}><Link href="/contactUs">Contact Us</Link></p>
           </div>
         </div>

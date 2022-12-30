@@ -1,6 +1,6 @@
 import { useState} from "react"
 import { updatePassage } from "../../services/service";
-import { getToken } from "../../store/messageSlice";
+import { getToken } from "../../store/authDataSlice";
 import { useSelector } from "react-redux";
 
 const UpdatePassage = (props) =>{

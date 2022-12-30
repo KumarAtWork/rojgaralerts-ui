@@ -5,27 +5,29 @@ import Link from "next/link";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <Link href="/">
-        <Image
-          className={styles.logo}
-          src="/logo.png"
-          width={110}
-          height={55}
-        ></Image>
+      <Link href="/"><div className={styles.logo}>
+      <p className={styles.slogan}>India's no.1 Jobs Listing site</p>
+      <text>Sarkarimail.com</text>
+      </div>
       </Link>
       <input className={styles.menu_btn} type="checkbox" id="menu_btn" />
       <label className={styles.menu_icon} htmlFor="menu_btn">
         <span className={styles.navicon}></span>
       </label>
       <ul className={styles.menu}>
-        <li>
-          <Link href="/">
-            <span>LATEST POST</span>
+      <li>
+          <Link href="#about">
+            <span>LATEST JOBS</span>
           </Link>
         </li>
         <li>
           <Link href="#about">
-            <span>PRACTICE ONLINE</span>
+            <span>RESULTS</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="#about">
+            <span>EDUCATIONS</span>
           </Link>
         </li>
         <li>

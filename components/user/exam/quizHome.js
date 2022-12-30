@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { LoadExamDetail } from "../../../services/service";
-import { getToken } from "../../../store/messageSlice";
+import { getToken } from "../../../store/authDataSlice";
 import { useSelector,useDispatch } from "react-redux";
 import { useLocation,useNavigate } from "react-router-dom";
 import styles from './quizHome.module.css';

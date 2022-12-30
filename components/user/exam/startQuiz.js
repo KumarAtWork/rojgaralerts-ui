@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { LoadAllQuestions } from "../../../services/service";
 import { useSelector ,useDispatch} from "react-redux/es/exports";
-import { getToken } from "../../../store/messageSlice";
+import { getToken } from "../../../store/authDataSlice";
 import { useLocation,useNavigate } from "react-router-dom";
 import Question from "./question";
 import styles from "./startQuiz.module.css"

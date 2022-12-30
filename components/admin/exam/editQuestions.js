@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ShowQuestion from "./showQuestion";
-import { getToken } from "../../store/messageSlice";
+import { getToken } from "../../../store/authDataSlice";
 import { useSelector } from "react-redux";
 import { LoadAllQuestions } from "../../services/service";
 import { useLocation } from "react-router-dom";

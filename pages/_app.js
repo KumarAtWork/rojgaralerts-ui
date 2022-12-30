@@ -6,6 +6,8 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { GOOGLE_RECAPTCHA_SITE_KEY } from "../constants";
+import Head from "next/head";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {  
   return (
@@ -17,6 +19,18 @@ function MyApp({ Component, pageProps }) {
         appendTo: "body", // optional, default to "head", can be "head" or "body",
         nonce: undefined,
       }}>
+        <Head>
+      <title>Sarkari Jobs | Sarkari Result | Government Jobs | Sarkari Naukri - Sarkarimail.com</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="description" content="Sarkari Jobs: Sarkarimail.com Gives Job Alert For Sarkari Jobs, Sarkari Naukri, Sarkari, Sarkari Exam"></meta>
+        </Head>
+        <Script id="script1" strategy="afterInteractive" async src="https://www.googletagmanager.com/gtag/js?id=G-H0MDGP88XT"></Script>
+     <Script id="script2" strategy="afterInteractive" dangerouslySetInnerHTML={{
+        __html:` 
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H0MDGP88XT');`}}/>
         <div className="container_main">
           <Header></Header>
           <Provider store={store}>

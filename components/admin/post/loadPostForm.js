@@ -3,7 +3,7 @@ import AddPostForm from './forms/AddPostForm'
 import EditPostForm from './forms/EditPostForm'
 import PostTable from './tables/PostTable'
 import axios from 'axios'
-import { getToken } from '../../store/messageSlice'
+import { getToken } from '../../store/authDataSlice'
 import { useSelector } from 'react-redux'
 const LoadPostForm = () => {
 	// Data

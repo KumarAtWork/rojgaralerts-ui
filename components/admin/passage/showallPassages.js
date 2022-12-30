@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react"
 import { useEffect } from "react"
-import { getToken } from "../../../store/messageSlice";
+import { getToken } from "../../../store/authDataSlice";
 import { useSelector } from "react-redux";
 import { HOST_IP } from "../../../constants";
 

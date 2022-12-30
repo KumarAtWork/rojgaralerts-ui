@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react"
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { getToken } from "../../../store/messageSlice";
+import { getToken } from "../../../store/authDataSlice";
 import ShowAllPassages from "../../../components/admin/passage/showallPassages";
 import styles from "./addQuestion.module.css";
 import { HOST_IP } from "../../../constants";

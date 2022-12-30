@@ -1,8 +1,20 @@
 .footer_container{
-    height:auto;
     background-color: black;
     padding-top: 30px;
     margin-top: 60px;
+}
+.logo_main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: whitesmoke;
+}
+.logo_txt{
+    font-size: 28px;
+    font-weight: 600;
+}
+.slogan_txt{
+    font-size: 18px;
 }
 .footer_text{
     font-size: 18px;
@@ -45,5 +57,6 @@
     .footer_container_main{
         display: flex;
         flex-direction: row;
+        height:300px;
     }
 }

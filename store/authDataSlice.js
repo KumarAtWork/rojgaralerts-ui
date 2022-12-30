@@ -3,9 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   message: "",
   token: "",
+  username:""
 };
 
-const messageSlice = createSlice({
+const authDataSlice = createSlice({
   name: "msg",
   initialState,
   reducers: {
@@ -22,10 +23,16 @@ const messageSlice = createSlice({
       if (typeof window !== "undefined")
         window.sessionStorage.setItem("token", JSON.stringify(action.payload));
     },
+    setUsername:(state,action)=>{
+      state.username = action.payload;
+      if (typeof window !== "undefined")
+      window.sessionStorage.setItem("username",JSON.stringify(action.payload));
+    }
   },
 });
 
-export const { setMessage, setToken } = messageSlice.actions;
+export const { setMessage, setToken, setUsername } = authDataSlice.actions;
 export const getMessage = () =>typeof window !== "undefined"?JSON.parse(window.sessionStorage.getItem("message")):undefined;
 export const getToken = () => typeof window !== "undefined"?JSON.parse(window.sessionStorage.getItem("token")):undefined;
-export default messageSlice.reducer;
+export const getUsername = () => typeof window !== "undefined"?JSON.parse(window.sessionStorage.getItem("username")):undefined;
+export default authDataSlice.reducer;

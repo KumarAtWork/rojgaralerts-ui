@@ -93,3 +93,11 @@ width: 468px;
     margin-top:20px;
     margin-bottom: 20px;
 }
+.show_btns{
+    display: flex;
+}
+.show_btns button{
+    padding: 10px;
+    margin:10px;
+    border:0;
+}

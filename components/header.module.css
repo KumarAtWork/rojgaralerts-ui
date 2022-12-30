@@ -8,8 +8,23 @@
     right:0;
     left:0;
     padding-top: 5px;
+    height: 66px;
   }
-  
+  .logo{
+  background-color: white;
+  }
+  .header text{
+    font-size: 38px;
+    font-weight: 600;
+    color: rgb(119, 46, 0);
+  }
+  .slogan{
+    font-size: 18px;
+    color: rgb(119, 46, 0);
+    margin-top: 0%;
+    margin: 0;
+    text-align: center;
+  }
   .header ul {
     margin: 0;
     padding: 0;
@@ -32,7 +47,7 @@
   .header li span:hover,
   .header .menu_btn:hover {
     background-color: #f4f4f4;
-    color:blue;
+    color: rgb(119, 46, 0)
   }
   
   .header .logo {
@@ -118,7 +133,7 @@
   
   /* 48em = 768px */
   
-  @media (min-width: 48em) {
+  @media (min-width: 58em) {
     .header li {
       float: left;
     }

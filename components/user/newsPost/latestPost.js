@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
-import { getLatestPost } from "../../../services/service";
+import { getAllLatestPost, getLatestPost } from "../../../services/service";
 import PostCategoryFrame from "./postCategoryFrame";
-import Link from "next/link"
-const LatestPost = ({category}) => {
-  const [highlightPost, setHighLightPost] = useState('');
+import styles from "./latestPost.module.css"
+const LatestPost = ({category,categoryTitle}) => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
-      const data = await getLatestPost(category);
+      const data = category!=null?await getLatestPost(category): await getAllLatestPost();
       if (data && data !== "Error") {
-        setHighLightPost(data[0]);
-        setPosts(data.splice(1,6));
+        setPosts(data.splice(0,5));
         setLoading(false);
       }
     };
@@ -21,12 +19,14 @@ const LatestPost = ({category}) => {
 
   return (
     <>
+    <div className={styles.post_grid_item}>
+      <div className={styles.post_grid_item_title + " "+"main_color"}>
+      <span>{categoryTitle}</span>
+      </div>
       {!isLoading && (
-        <PostCategoryFrame category={category} highlightPost={highlightPost}  posts={posts}/>
-      )}
-      
-     
-      
+        <PostCategoryFrame category={category} posts={posts}/>
+      )}    
+    </div>
     </>
   );
 };

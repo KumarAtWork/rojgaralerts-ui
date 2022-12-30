@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getNewsPost, updateNewsPost, uploadImageForNewsPost } from "../../../services/service";
 import {useRouter} from "next/router";
-import { getToken } from "../../../store/messageSlice";
+import { getToken } from "../../../store/authDataSlice";
 import { useSelector } from "react-redux";
 const SavedPost = () => {
-  const [post, setPost] = useState("");
+  const [post, setPost] = useState();
   const [loading, setLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState("");
   const token = useSelector(getToken);
@@ -13,6 +13,7 @@ const SavedPost = () => {
   useEffect(() => {
     const loadData = async () => {
       const data = await getNewsPost(router.query._id);
+      
       if (data && data != "Error") {
         console.log("data from getNewsPost:" + data);
         setPost(data);

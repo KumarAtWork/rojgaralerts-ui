@@ -1,6 +1,8 @@
 .contact_us_container{
     margin-top: 80px;
     margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
 }
 .contact_us{
     display: flex;
@@ -17,7 +19,7 @@
 }
 .send_mail_btn{
     width: 100%;
-    background-color: #1378f6;
+    background-color: rgb(119, 46, 0);
     height: 34px;
     font-size: 22px;
     color: white;
@@ -29,5 +31,15 @@
     margin:0 auto;
     text-align: center;
     margin:0;
-    padding: 0;
+    padding: 0px;
+}
+
+@media (min-width:768px) {
+    .connect_with_us{
+        width: 20%;
+        padding: 120px;
+    }
+    .contact_us_container{
+        flex-direction: row;
+    }
 }

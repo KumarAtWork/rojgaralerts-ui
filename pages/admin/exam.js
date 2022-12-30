@@ -6,7 +6,7 @@ import { addSubjectRow } from "../../store/subjectSlice"
 import LoadSubjectByCount from "../../components/admin/exam/loadSubjectByCount"
 import { getAllSubjectValues } from "../../store/subjectValuesSlice"
 import { addSubject } from "../../store/subjectValuesSlice"
-import { getMessage, setMessage, getToken} from "../../store/messageSlice"
+import { getMessage, setMessage, getToken} from "../../store/authDataSlice"
 import axios from "axios"
 import { HOST_IP } from "../../constants"
 

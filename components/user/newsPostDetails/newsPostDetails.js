@@ -13,18 +13,18 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "next-share";
-
+import SizedBox from "../../sizedBox";
+import Script from "next/script";
 const NewsPostDetails = ({ pageId }) => {
   console.log("pageId:" + pageId);
   const [newsPost, setNewsPost] = useState("");
   const [isLoading, setLoading] = useState(true);
-  const [src, setSrc] = useState("");
+  const [showPDF, setShowPDF] = useState(false);
   useEffect(() => {
     const loadData = async () => {
       const data = await getNewsPost(pageId);
       if (data && data != "Error") {
-        setNewsPost(data);
-        setSrc(image_root_dir + "/images/" + pageId)
+        setNewsPost(data);    
         setLoading(false);
       }
     };
@@ -42,42 +42,99 @@ const NewsPostDetails = ({ pageId }) => {
   if (isLoading) return <>Loading...</>;
   return (
     <>
+   
       <div className={styles.news_post_details}>
         <div className={styles.headline}>
-          <h1 className={styles.headline_title}>{newsPost.title}</h1>
-          <span className={styles.headline_title_meta}>
-            Last Updated : {newsPost.updatedAt.substr(0, 10)}
-          </span>
           <div className={styles.news_headline_container}>
             <div className={styles.news_headline_box}>
-              <div className={styles.headline_img}>
-                <Image
-                  src={src + "/" + newsPost.imageName}
-                  onError={() => setSrc("/logo_black.png")}
-                  layout="fill"
-                ></Image>
-              </div>
-              <div className={styles.highlights}>
-                <p className="para">
-                  <strong>Highlights:</strong>
-                </p>
-                <ul className={styles.highlight_list}>
-                  {newsPost.headlines &&
-                    newsPost.headlines.map((headline) => (
-                      <li>
-                        <p className="para">{headline}</p>
-                      </li>
-                    ))}
-                </ul>
-              </div>
+              <h1 className={styles.headline_title}>{newsPost.title}</h1>
+              <span className={styles.headline_title_meta}>
+                Last Updated : {newsPost.updatedAt.substr(0, 10)}
+              </span>
+              <SizedBox height="30px"></SizedBox>
               <div className={styles.news_body}>
                 <div>
                   {newsPost.paragraphs &&
                     newsPost.paragraphs.map((para, i) => {
-                      if (i == 0) return <p className="para">{para}</p>;
+                      if (i == 0) return <p className="para"><strong>Details : </strong>{para}</p>;
                       else return <p className="para">&nbsp;{para}</p>;
                     })}
                 </div>
+                {newsPost.headlines.length>0 && <div className={styles.highlights}>
+                  <div className={styles.other_post_title+" "+"main_color"}>
+                    <span>Highlights</span>
+                  </div>
+                  <ul className={styles.highlight_list}>
+                    {
+                      newsPost.headlines.map((headline) => (
+                        <li>
+                          <p className="para">{headline}</p>
+                        </li>
+                      ))}
+                  </ul>
+                </div>}
+                <SizedBox height="20px"></SizedBox>
+                {newsPost.vacancies.length>0 &&<div className={styles.highlights}>
+                  <div className={styles.other_post_title+" "+"main_color"}>
+                    <span>Vacancy Details</span>
+                  </div>
+                  <table>
+                    {newsPost.vacancies.map((d) => (
+                        <tr>
+                          {d.title&&<td>
+                            <p className="para">{d.title}</p>
+                            </td>}
+                          <td>
+                            <p className="para">{d.name}</p>
+                          </td>
+                          <td>
+                            <p className="para">{d.value}</p>
+                          </td>
+                        </tr>
+                      ))}
+                  </table>
+                </div>}
+                <SizedBox height="20px"></SizedBox>
+                {newsPost.impDates.length>0 && <div className={styles.highlights}>
+                  <div className={styles.other_post_title+" "+"main_color"}>
+                    <span>Important Dates</span>
+                  </div>
+                  <table>
+                    {newsPost.impDates &&
+                      newsPost.impDates.map((d) => (
+                        <tr>
+                           {d.title&&<td>
+                            <p className="para">{d.title}</p>
+                            </td>}
+                          <td>
+                            <p className="para">{d.name}</p>
+                          </td>
+                          <td>
+                            <p className="para">{d.value}</p>
+                          </td>
+                        </tr>
+                      ))}
+                  </table>
+                </div>}
+                <SizedBox height="20px"></SizedBox>
+                {newsPost.impLinks.length>0 && <div className={styles.highlights}>
+                  <div className={styles.other_post_title+" "+"main_color"}>
+                    <span>Important Links</span>
+                  </div>
+                  <table>
+                    {newsPost.impLinks.map((d) => (
+                        <tr>
+                           {d.title&&<td>
+                            <p className="para">{d.title}</p>
+                            </td>}
+                          <td>
+                           <p class="para"> <Link href={d.value} passHref={true}>{d.name}</Link></p>
+                          </td>
+                        </tr>
+                      ))}
+                  </table>
+                </div>}
+                <SizedBox height="20px"></SizedBox>
                 <div>
                   {newsPost.titledParagraphs &&
                     newsPost.titledParagraphs.map((para, i) => (
@@ -110,29 +167,52 @@ const NewsPostDetails = ({ pageId }) => {
               </div>
             </div>
             <div className={styles.trending_jobs}>
-              <p className="para">
-                <strong>RECENT POSTS</strong>
-              </p>
+              <div className={styles.other_post_title+" "+"main_color"}>
+                <span>Latest Jobs</span>
+              </div>
               <OtherNewsPosts
-                category="news"
                 pageId={pageId}
                 count={newsPost.headlines ? newsPost.headlines.length : 0}
               ></OtherNewsPosts>
-               <div className="view_more_link">
-                <Link href={"/posts/news"}>View More</Link>
-                </div>
-              <hr/>
-              <p className="para">
-                <strong>EDUCATION</strong>
-              </p>
-                 <OtherNewsPosts
-                category="education"
+              <div className="view_more_link">
+                <Link href={"/posts/"}>View More</Link>
+              </div>
+              <hr />
+              <div className={styles.other_post_title+" "+"main_color"}>
+                <span>UPSC Jobs</span>
+              </div>
+              <OtherNewsPosts
+                category="upsc"
                 pageId={pageId}
                 count={newsPost.headlines ? newsPost.headlines.length : 0}
               ></OtherNewsPosts>
-               <div className="view_more_link">
+              <div className="view_more_link">
+                <Link href={"/posts/upsc"}>View More</Link>
+              </div>
+              <hr />
+              <div className={styles.other_post_title+" "+"main_color"}>
+                <span>SSC Jobs</span>
+              </div>
+              <OtherNewsPosts
+                category="ssc"
+                pageId={pageId}
+                count={newsPost.headlines ? newsPost.headlines.length : 0}
+              ></OtherNewsPosts>
+              <div className="view_more_link">
+                <Link href={"/posts/ssc"}>View More</Link>
+              </div>
+              <hr />
+              <div className={styles.other_post_title+" "+"main_color"}>
+                <span>Defence/Police Jobs</span>
+              </div>
+              <OtherNewsPosts
+                category="defence"
+                pageId={pageId}
+                count={newsPost.headlines ? newsPost.headlines.length : 0}
+              ></OtherNewsPosts>
+              <div className="view_more_link">
                 <Link href={"/posts/education"}>View More</Link>
-                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {setToken,getToken,setMessage,getMessage} from "../../../store/messageSlice";
+import {setToken,getToken,setUsername,getUsername,setMessage,getMessage} from "../../../store/authDataSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import styles from "./login.module.css";
-import { SARKAARIEXAMS_HOST } from "../../../constants";
+import {SARKAARIEXAMS_HOST } from "../../../constants";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -25,8 +25,13 @@ const Login = () => {
     axios
       .post(SARKAARIEXAMS_HOST+"/login",params)
       .then((response) => {
-        console.log("Login api call is successfull"+response.data);
-        dispatch(setToken(response.data.access_token));
+        if(response.status==200){
+          console.log("Login api call is successfull"+response.data);
+          dispatch(setToken(response.data.access_token));
+          dispatch(setUsername(userName));
+        }
+        else
+        throw err;
       })
       .catch((err) => {
         console.error("Error in calling Login Api"+err);

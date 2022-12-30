@@ -1,5 +1,6 @@
 .news_post_details{
     width:100%;
+    min-height: 500px;
 }
 .headline{
     padding-top: 20px;
@@ -9,7 +10,7 @@
    text-transform: capitalize;
    font-size: 34px;
    line-height: 38px;
-   margin: 12px 0 8px;
+   margin: 0px 0 0px;
 }
 .headline_title_meta{
     font-size: 12px;
@@ -29,8 +30,8 @@
 
 .highlights{
     padding: 0.1%;
-    background-color: antiquewhite;
     height: auto;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 15%);
 }
 .highlight_list{
     list-style-type: disclosure-closed;
@@ -65,6 +66,12 @@ padding-left: 2%;
     overflow-x: scroll;
 }
 
+.other_post_title{
+    text-align: center;
+    color: white;
+    height: 35px;
+    line-height: 35px;
+}
 @media (min-width: 768px){
     .paragraphs{
         width:600px;
