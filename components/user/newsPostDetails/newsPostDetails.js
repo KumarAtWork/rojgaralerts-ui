@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { useState, useEffect } from "react";
-import { image_root_dir } from "../../../constants";
 import { getNewsPost, getPost } from "../../../services/service";
 import styles from "./newsPostDetails.module.css";
 import OtherNewsPosts from "./otherNewsPosts";
@@ -14,7 +12,7 @@ import {
   WhatsappIcon,
 } from "next-share";
 import SizedBox from "../../sizedBox";
-import Script from "next/script";
+import Head from "next/head";
 const NewsPostDetails = ({ pageId }) => {
   console.log("pageId:" + pageId);
   const [newsPost, setNewsPost] = useState("");
@@ -42,43 +40,40 @@ const NewsPostDetails = ({ pageId }) => {
   if (isLoading) return <>Loading...</>;
   return (
     <>
-   
+    <Head>
+      <title>{newsPost.title}</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="description" content="Sarkari Jobs: Sarkarimail.com Gives Job Alert For Sarkari Jobs, Sarkari Naukri, Sarkari, Sarkari Exam"></meta>
+        </Head>
       <div className={styles.news_post_details}>
         <div className={styles.headline}>
           <div className={styles.news_headline_container}>
             <div className={styles.news_headline_box}>
               <h1 className={styles.headline_title}>{newsPost.title}</h1>
               <span className={styles.headline_title_meta}>
-                Last Updated : {newsPost.updatedAt.substr(0, 10)}
+                <strong>Last Updated : </strong> {newsPost.updatedAt.substr(0, 10).split("-").reverse().join("-")}
               </span>
               <SizedBox height="30px"></SizedBox>
               <div className={styles.news_body}>
-                <div>
-                  {newsPost.paragraphs &&
-                    newsPost.paragraphs.map((para, i) => {
-                      if (i == 0) return <p className="para"><strong>Details : </strong>{para}</p>;
-                      else return <p className="para">&nbsp;{para}</p>;
-                    })}
+                <div className={styles.post_details}>
+                  {newsPost.posts && newsPost.board &&
+                     <p className="para"><strong>Details : </strong>
+                      {newsPost.board} Invites Applications From Eligible Candidates For {newsPost.posts}.
+                      Interested Candidates Can Read Full Notification Below And Apply Online By Visiting Official Website.
+                      </p>
+                    }
                 </div>
-                {newsPost.headlines.length>0 && <div className={styles.highlights}>
-                  <div className={styles.other_post_title+" "+"main_color"}>
-                    <span>Highlights</span>
-                  </div>
-                  <ul className={styles.highlight_list}>
-                    {
-                      newsPost.headlines.map((headline) => (
-                        <li>
-                          <p className="para">{headline}</p>
-                        </li>
-                      ))}
-                  </ul>
-                </div>}
                 <SizedBox height="20px"></SizedBox>
                 {newsPost.vacancies.length>0 &&<div className={styles.highlights}>
                   <div className={styles.other_post_title+" "+"main_color"}>
                     <span>Vacancy Details</span>
                   </div>
                   <table>
+                    <tr>
+                      <th><strong>Title / Department</strong></th>
+                      <th><strong>Seats</strong></th>
+                      <th><strong>Qualification</strong></th>
+                    </tr>
                     {newsPost.vacancies.map((d) => (
                         <tr>
                           {d.title&&<td>
@@ -124,11 +119,8 @@ const NewsPostDetails = ({ pageId }) => {
                   <table>
                     {newsPost.impLinks.map((d) => (
                         <tr>
-                           {d.title&&<td>
-                            <p className="para">{d.title}</p>
-                            </td>}
                           <td>
-                           <p class="para"> <Link href={d.value} passHref={true}>{d.name}</Link></p>
+                           <p class="para"> <Link href={d.value} passHref={true}>{d.title?d.title:d.name}</Link></p>
                           </td>
                         </tr>
                       ))}

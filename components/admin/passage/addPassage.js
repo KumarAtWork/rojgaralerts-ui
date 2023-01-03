@@ -2,7 +2,7 @@ import { useState } from "react"
 import axios from 'axios'
 import { getToken } from "../../../store/authDataSlice";
 import { useSelector } from "react-redux";
-import { HOST_IP } from "../../../constants";
+import { SARKAARIEXAMS_HOST } from "../../../constants";
 
 const AddPassage = (props) => {
 const [passage, setPassage] = useState('');
@@ -14,7 +14,7 @@ formData.append('passage',passage);
 formData.append('image',file);
 
 const onClickHandler = () =>{
-axios.post(HOST_IP+'/exams/exam/'+props.examId+'/subject/'+props.subjectId+'/passage',formData,{
+axios.post(SARKAARIEXAMS_HOST+'/exams/exam/'+props.examId+'/subject/'+props.subjectId+'/passage',formData,{
     headers:{
         'Authorization':token
     }

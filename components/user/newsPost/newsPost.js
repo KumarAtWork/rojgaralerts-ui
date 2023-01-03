@@ -14,7 +14,10 @@ const NewsPost = (props) => {
             }
             className={styles.post_title}
           >
+            <div>
             <p className="title">{props.title.substr(0,70)}</p>
+            {props.lastDate && <label className={styles.last_date}><strong>Last Date : </strong>{props.lastDate}</label>}
+            </div>
           </Link>
         </div>
       </div>

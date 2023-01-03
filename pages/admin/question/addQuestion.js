@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { getToken } from "../../../store/authDataSlice";
 import ShowAllPassages from "../../../components/admin/passage/showallPassages";
 import styles from "./addQuestion.module.css";
-import { HOST_IP } from "../../../constants";
+import { SARKAARIEXAMS_HOST } from "../../../constants";
 
 const AddQuestion = (props) => {
     const router = useRouter();
@@ -33,7 +33,7 @@ const AddQuestion = (props) => {
             }
     }
     const onSubmitHandler = () =>{
-        axios.post(HOST_IP+'/exams/exam/'+router.query.examId+'/subject/'+router.query.subjectId+'/questions/question',{
+        axios.post(SARKAARIEXAMS_HOST+'/exams/exam/'+router.query.examId+'/subject/'+router.query.subjectId+'/questions/question',{
             passageId:passage?passage.id:null,
             question:question,
             optionA:optionA,

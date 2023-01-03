@@ -31,6 +31,13 @@ const NewsPost = () => {
   const router = useRouter();
   const token = useSelector(getToken);
   const username = useSelector(getUsername);
+  const [lastDate, setLastDate] = useState();
+  const [posts, setPosts] = useState();
+  const [board, setBoard] = useState();
+  const [impDateTitle,setImpDateTitle] = useState();
+  const [impDateValue,setImpDateValue] = useState();
+  const [impLinkTitle,setImpLinkTitle] = useState();
+  const [impLinkValue,setImpLinkValue] = useState();
 
   const headlineHandler = () => {
     if (hIndex >= 0) {
@@ -89,26 +96,24 @@ const NewsPost = () => {
   const addImpDatesHandler = () => {
     if (hIndex >= 0) {
       const arr = [...impDates];
-      arr[hIndex] = { title: mTitle,name:mName, paragraph: mParagraph };
+      arr[hIndex] = { title: impDateTitle,name:impDateValue, paragraph: mParagraph };
       setHIndex(-1);
       setImpDates(arr);
     } else
-      setImpDates([...impDates, { title: mTitle, name:mName,paragraph: mParagraph }]);
-    setMTitle("");
-    setMName("");
-    setMParagraph("");
+      setImpDates([...impDates, { title: impDateTitle, name:impDateValue}]);
+    setImpDateTitle("");
+    setImpDateValue("");
   };
   const addImpLinksHandler = () => {
     if (hIndex >= 0) {
       const arr = [...impLinks];
-      arr[hIndex] = { title: mTitle, name:mName,paragraph: mParagraph };
+      arr[hIndex] = { title: impLinkTitle, value:impLinkValue};
       setHIndex(-1);
       setImpLinks(arr);
     } else
-      setImpLinks([...impLinks, { title: mTitle,name:mName, paragraph: mParagraph }]);
-    setMTitle("");
-    setMName("");
-    setMParagraph("");
+      setImpLinks([...impLinks, { title: impLinkTitle, value:impLinkValue}]);
+    setImpLinkTitle("");
+    setImpLinkValue("");
   };
   const submitNewsPostHandler = async () => {
     console.log("In submit post"+username);
@@ -123,7 +128,10 @@ const NewsPost = () => {
       impDates:impDates,
       impLinks:impLinks,
       state:state,
-      qualification:qualification
+      qualification:qualification,
+      lastDate:lastDate,
+      posts:posts,
+      board:board
     },token,username);
     if (data && data != "Error") {
       console.log('data after saving post:'+data);
@@ -201,77 +209,32 @@ const NewsPost = () => {
             <input
               style={{ marginBottom: "10px" }}
               type="text"
-              placeholder="Display Title"
-              name="displayTitle"
-              onChange={(e) => setDisplayTitle(e.target.value)}
+              placeholder="Title"
+              name="title"
+              maxLength="65"
+              onChange={(e) => setTitle(e.target.value)}
+            ></input>
+               <input
+              style={{ marginBottom: "10px" }}
+              type="text"
+              placeholder="Last Date"
+              name="lastDate"
+              onChange={(e) => setLastDate(e.target.value)}
             ></input>
             <input
               style={{ marginBottom: "10px" }}
               type="text"
-              placeholder="Title"
-              name="title"
-              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Posts"
+              name="posts"
+              onChange={(e) => setPosts(e.target.value)}
             ></input>
-            <div className={styles.headline_input}>
-              <input
-                type="text"
-                placeholder="Headline"
-                name="headline"
-                value={headline}
-                onChange={(e) => setHeadline(e.target.value)}
-              ></input>
-              <button
-                onClick={() => headlineHandler()}
-                className={styles.add_headline_btn}
-              >
-                Add
-              </button>
-            </div>
-            <div className={styles.headlines_container}>
-              {headlines.length > 0
-                ? headlines.map((h, i) => (
-                    <div style={{ marginBottom: "10px" }}>
-                      <span>{h}</span>
-                      <button
-                        className={styles.edit_headline_btn}
-                        onClick={() => {
-                          setHIndex(i);
-                          setHeadline(h);
-                        }}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        className={styles.edit_headline_btn}
-                        onClick={() => {
-                          const arr = [...headlines];
-                          arr.splice(i, 1);
-                          setHeadlines(arr);
-                        }}
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  ))
-                : ""}
-            </div>
-            <div className={styles.paragraph_input}>
-              <textarea
-                style={{ marginBottom: "1px", fontSize: "22px" }}
-                rows={5}
-                cols={55}
-                placeholder="1st line"
-                name="paragraph"
-                value={paragraph}
-                onChange={(e) => setParagraph(e.target.value)}
-              ></textarea>
-              <button
-                className={styles.add_headline_btn}
-                onClick={() => addParagraphHandler()}
-              >
-                Add
-              </button>
-            </div>
+            <input
+              style={{ marginBottom: "10px" }}
+              type="text"
+              placeholder="Job Board"
+              name="board"
+              onChange={(e) => setBoard(e.target.value)}
+            ></input>
             <div className={styles.paragraphs_container}>
               {paragraphs.length > 0
                 ? paragraphs.map((p, i) => (
@@ -308,7 +271,7 @@ const NewsPost = () => {
           <input
             type="text"
             style={{ marginBottom: "10px" }}
-            placeholder="Sub-Title"
+            placeholder="Title / Department"
             name="mTitle"
             value={mTitle}
             onChange={(e) => setMTitle(e.target.value)}
@@ -316,7 +279,7 @@ const NewsPost = () => {
             <input
             type="text"
             style={{ marginBottom: "10px" }}
-            placeholder="Name"
+            placeholder="Seats"
             name="mName"
             value={mName}
             onChange={(e) => setMName(e.target.value)}
@@ -326,7 +289,7 @@ const NewsPost = () => {
               rows={5}
               style={{ marginBottom: "10px", fontSize: "22px" }}
               cols={37}
-              placeholder="1st line"
+              placeholder="Qualifications"
               name="mParagraph"
               value={mParagraph}
               onChange={(e) => setMParagraph(e.target.value)}
@@ -338,26 +301,64 @@ const NewsPost = () => {
             >
               Set Vacancies
             </button>
-            <SizedBox height="4px"></SizedBox>
+            <SizedBox height="16px"></SizedBox>
+            <input
+            type="text"
+            style={{ marginBottom: "10px" }}
+            placeholder="Imp. Date Title"
+            name="impDateTitle"
+            value={impDateTitle}
+            list="impDateList"
+            onChange={(e) => setImpDateTitle(e.target.value)}
+          ></input>
+          <datalist id="impDateList">
+            <option>Notification Issued On</option>
+            <option>Online Application Starts</option>
+            <option>Closing of Online Application</option>
+          </datalist>
+          <SizedBox height="4px"></SizedBox>
+            <input
+            type="text"
+            style={{ marginBottom: "10px" }}
+            placeholder="Imp. Date Value"
+            name="impDateValue"
+            value={impDateValue}
+            onChange={(e) => setImpDateValue(e.target.value)}
+          ></input>
             <button
               className={styles.add_titled_para_btn}
               onClick={() => addImpDatesHandler()}
             >
               Set Important Dates
             </button>
-            <SizedBox height="4px"></SizedBox>
+            <SizedBox height="16px"></SizedBox>
+            <input
+            type="text"
+            style={{ marginBottom: "10px" }}
+            placeholder="Imp. Link Title"
+            name="impLinkTitle"
+            value={impLinkTitle}
+            list="impLinkList"
+            onChange={(e) => setImpLinkTitle(e.target.value)}
+          ></input>
+          <datalist id="impLinkList">
+            <option>Go To Official Website</option>
+            <option>See Official Notification</option>
+          </datalist>
+          <SizedBox height="4px"></SizedBox>
+            <input
+            type="text"
+            style={{ marginBottom: "10px" }}
+            placeholder="Imp. Link Value"
+            name="impLinkValue"
+            value={impLinkValue}
+            onChange={(e) => setImpLinkValue(e.target.value)}
+          ></input>
             <button
               className={styles.add_titled_para_btn}
               onClick={() => addImpLinksHandler()}
             >
               Set Important Links
-            </button>
-            <SizedBox height="4px"></SizedBox>
-            <button
-              className={styles.add_titled_para_btn}
-              onClick={() => addSubTitleHandler()}
-            >
-              Set Sub-Titles
             </button>
           </div>
           <div className={styles.show_btns}>
@@ -367,13 +368,8 @@ const NewsPost = () => {
             <button style={showImpDates?{color:"blue"}:{color:"black"}} onClick={() => setShowImpDates(!showImpDates)}>
               Show Imp. Dates
             </button>
-          </div>
-          <div className={styles.show_btns}>
             <button style={showImpLinks?{color:"blue"}:{color:"black"}} onClick={() => setShowImpLinks(!showImpLinks)}>
               Show Imp. Links
-            </button>
-            <button style={showTitledParagraphs?{color:"blue"}:{color:"black"}} onClick={() => setShowTitledParagraphs(!showTitledParagraphs)}>
-              Show Titled Paragraphs
             </button>
           </div>
           <div className={styles.titled_para_container}>
@@ -418,16 +414,6 @@ const NewsPost = () => {
                     <button
                       className={styles.edit_headline_btn}
                       onClick={() => {
-                        setHIndex(i), setMTitle(t.title);
-                        setMName(t.name);
-                        setMParagraph(t.paragraph);
-                      }}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className={styles.edit_headline_btn}
-                      onClick={() => {
                         const arr = [...impDates];
                         arr.splice(i, 1);
                         setImpDates(arr);
@@ -439,7 +425,6 @@ const NewsPost = () => {
                   </div>
                 ))
               : ""}
-
             {showImpLinks && impLinks.length > 0
               ? impLinks.map((t, i) => (
                   <div style={{ marginBottom: "10px" }}>
@@ -447,16 +432,6 @@ const NewsPost = () => {
                     <p>{t.title}</p>
                     <p>{t.name}</p>
                     <span>{t.paragraph}</span>
-                    <button
-                      className={styles.edit_headline_btn}
-                      onClick={() => {
-                        setHIndex(i), setMTitle(t.title);
-                        setMName(t.name);
-                        setMParagraph(t.paragraph);
-                      }}
-                    >
-                      Edit
-                    </button>
                     <button
                       className={styles.edit_headline_btn}
                       onClick={() => {

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { getToken } from "../../../store/authDataSlice";
 import { useSelector } from "react-redux";
-import { HOST_IP } from "../../../constants";
+import { SARKAARIEXAMS_HOST } from "../../../constants";
 
 
 const ShowAllPassages = (props) => {
@@ -12,7 +12,7 @@ const ShowAllPassages = (props) => {
     
 
     useEffect(() => {
-        axios.get(HOST_IP+'/exams/exam/' + props.examId + '/subject/' + props.subjectId + '/passages', {
+        axios.get(SARKAARIEXAMS_HOST+'/exams/exam/' + props.examId + '/subject/' + props.subjectId + '/passages', {
             headers: {
                 'Authorization': token
             }

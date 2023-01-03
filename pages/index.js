@@ -62,17 +62,17 @@ export default function Home() {
     </div>
     <div className="post_grid">
      <LatestPost category="notification"categoryTitle="Latest Notifications" ></LatestPost>        
-      <LatestPost category="upsc" categoryTitle="UPSC Jobs"></LatestPost>
+      <LatestPost category="upsc" categoryTitle="PSC Jobs"></LatestPost>
       <LatestPost category="ssc" categoryTitle="SSC Jobs"></LatestPost> 
       <LatestPost category="defence" categoryTitle="Defence/Police Jobs"></LatestPost>
       <LatestPost category="healthcare" categoryTitle="Healthcare Jobs"></LatestPost>
       <LatestPost category="banking" categoryTitle="Banking Jobs"></LatestPost>
-      {/* <LatestPost category="science" categoryTitle="Science/Engineering Jobs"></LatestPost> */}
-      {/* <LatestPost category="teaching" categoryTitle="Teaching Jobs"></LatestPost> */}
-      {/* <LatestPost category="railways" categoryTitle="Railways Jobs"></LatestPost> */}
+      <LatestPost category="science" categoryTitle="Science / Engineering Jobs"></LatestPost>
+      <LatestPost category="teaching" categoryTitle="Teaching Jobs"></LatestPost>
+      <LatestPost category="railways" categoryTitle="Railways Jobs"></LatestPost>
       <LatestPost category="other" categoryTitle="Other Jobs"></LatestPost>
       {/* <LatestPost category="result" categoryTitle="Results"></LatestPost> */}
-      <LatestPost category="education" categoryTitle="Education"></LatestPost> 
+      {/* <LatestPost category="education" categoryTitle="Education"></LatestPost>  */}
     </div>
       
     </>

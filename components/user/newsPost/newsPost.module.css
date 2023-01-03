@@ -24,7 +24,10 @@ min-width: 100px;
     padding:1%;
     border-bottom: 1px solid #f6f6f6;
 }
-
+.last_date{
+  color: #000000;
+  font-size: 12px;
+}
 .news_grid{
     display: grid;
 }

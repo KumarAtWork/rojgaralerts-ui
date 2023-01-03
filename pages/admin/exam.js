@@ -8,7 +8,7 @@ import { getAllSubjectValues } from "../../store/subjectValuesSlice"
 import { addSubject } from "../../store/subjectValuesSlice"
 import { getMessage, setMessage, getToken} from "../../store/authDataSlice"
 import axios from "axios"
-import { HOST_IP } from "../../constants"
+import { SARKAARIEXAMS_HOST } from "../../constants"
 
 
 
@@ -34,7 +34,7 @@ const Exam = () => {
     console.log(type);
     console.log(year);
     console.log(subjectValues);
-    axios.post(HOST_IP+'/exams/exam', {
+    axios.post(SARKAARIEXAMS_HOST+'/exams/exam', {
       exam: exam,
       durationInMinutes: durationInMinutes,
       type: type,

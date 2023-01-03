@@ -11,10 +11,15 @@
    font-size: 34px;
    line-height: 38px;
    margin: 0px 0 0px;
+   padding: 2px;
 }
 .headline_title_meta{
     font-size: 12px;
     font-weight: 300;
+    padding: 2px;
+}
+.post_details{
+    padding: 2px;
 }
 .paragraphs{
     padding: 2%;
@@ -71,6 +76,10 @@ padding-left: 2%;
     color: white;
     height: 35px;
     line-height: 35px;
+}
+
+.news_headline_box{
+    border: 1px solid whitesmoke;
 }
 @media (min-width: 768px){
     .paragraphs{
