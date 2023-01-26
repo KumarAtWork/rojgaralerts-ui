@@ -7,7 +7,7 @@ const Header = () => {
     <header className={styles.header}>
       <Link href="/"><div className={styles.logo}>
       <p className={styles.slogan}>India's no.1 Jobs Listing site</p>
-      <text>Sarkarimail.com</text>
+      <text>RojgarAlerts.In</text>
       </div>
       </Link>
       <input className={styles.menu_btn} type="checkbox" id="menu_btn" />
@@ -16,18 +16,23 @@ const Header = () => {
       </label>
       <ul className={styles.menu}>
       <li>
-          <Link href="#about">
-            <span>LATEST JOBS</span>
+          <Link href="/">
+            <span>HOME</span>
           </Link>
         </li>
         <li>
-          <Link href="#about">
+          <Link href="https://exams.sarkarimail.com">
+            <span>EXAMS</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="#results">
             <span>RESULTS</span>
           </Link>
         </li>
         <li>
-          <Link href="#about">
-            <span>EDUCATIONS</span>
+          <Link href="/aboutUs">
+            <span>ABOUT US</span>
           </Link>
         </li>
         <li>

@@ -160,18 +160,19 @@ const NewsPostDetails = ({ pageId }) => {
             </div>
             <div className={styles.trending_jobs}>
               <div className={styles.other_post_title+" "+"main_color"}>
-                <span>Latest Jobs</span>
+                <h1>Latest Notifications</h1>
               </div>
               <OtherNewsPosts
+                category="notification"
                 pageId={pageId}
                 count={newsPost.headlines ? newsPost.headlines.length : 0}
               ></OtherNewsPosts>
               <div className="view_more_link">
-                <Link href={"/posts/"}>View More</Link>
+                <Link href={"/jobs/notification"}>View More</Link>
               </div>
               <hr />
               <div className={styles.other_post_title+" "+"main_color"}>
-                <span>UPSC Jobs</span>
+                <h1>PSC Jobs</h1>
               </div>
               <OtherNewsPosts
                 category="upsc"
@@ -179,11 +180,11 @@ const NewsPostDetails = ({ pageId }) => {
                 count={newsPost.headlines ? newsPost.headlines.length : 0}
               ></OtherNewsPosts>
               <div className="view_more_link">
-                <Link href={"/posts/upsc"}>View More</Link>
+                <Link href={"/jobs/upsc"}>View More</Link>
               </div>
               <hr />
               <div className={styles.other_post_title+" "+"main_color"}>
-                <span>SSC Jobs</span>
+                <h1>SSC Jobs</h1>
               </div>
               <OtherNewsPosts
                 category="ssc"
@@ -191,11 +192,11 @@ const NewsPostDetails = ({ pageId }) => {
                 count={newsPost.headlines ? newsPost.headlines.length : 0}
               ></OtherNewsPosts>
               <div className="view_more_link">
-                <Link href={"/posts/ssc"}>View More</Link>
+                <Link href={"/jobs/ssc"}>View More</Link>
               </div>
               <hr />
               <div className={styles.other_post_title+" "+"main_color"}>
-                <span>Defence/Police Jobs</span>
+                <h1>Defence/Police Jobs</h1>
               </div>
               <OtherNewsPosts
                 category="defence"
@@ -203,7 +204,7 @@ const NewsPostDetails = ({ pageId }) => {
                 count={newsPost.headlines ? newsPost.headlines.length : 0}
               ></OtherNewsPosts>
               <div className="view_more_link">
-                <Link href={"/posts/education"}>View More</Link>
+                <Link href={"/jobs/defence"}>View More</Link>
               </div>
             </div>
           </div>

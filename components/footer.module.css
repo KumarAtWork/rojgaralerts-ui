@@ -1,13 +1,17 @@
 .footer_container{
     background-color: black;
-    padding-top: 30px;
     margin-top: 60px;
+}
+.footer_container_main{
+    padding-top: 30px;
+    padding-bottom: 30px; 
 }
 .logo_main{
     display: flex;
     flex-direction: column;
     text-align: center;
     color: whitesmoke;
+    cursor: pointer;
 }
 .logo_txt{
     font-size: 28px;
@@ -21,6 +25,7 @@
     margin: 0;
     color:white;
     padding-top: 10px;
+    text-align: center;
 }
 .footer_text a{
     color: white;
@@ -32,6 +37,7 @@
 
 .footer_rows_items{
     padding: 10px;
+    display: contents;
 }
 
 .footer_copyright{
@@ -47,6 +53,7 @@
     .footer_rows_items{
         padding: 10px;
         width: 384px;
+        display: block;
     }
 }
 @media (min-width:900px){
@@ -57,6 +64,10 @@
     .footer_container_main{
         display: flex;
         flex-direction: row;
-        height:300px;
+       
+    }
+    .social_medias{
+        width: max-content;
+        margin: 0 auto;
     }
 }

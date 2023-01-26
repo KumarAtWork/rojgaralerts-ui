@@ -52,6 +52,11 @@ footer{
 .view_more_link{
   width: max-content;
   margin:0 auto;
+  
+}
+.view_more_link a{
+  color: black;
+  text-decoration: none;
 }
 .post_carousel{
  display: flex;
@@ -77,21 +82,25 @@ overflow: hidden;
 width: auto;
 }
 .post_btn{
-  padding: 18px;
+  padding: 34px;
   border: 0;
   width: -webkit-fill-available;
-  margin-top:20px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  font-weight: 600;
+  margin-top:10px;
+  margin-bottom: 10px;
   color: whitesmoke;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
-.post_btn label{
+.post_btn h1{
   width: fit-content;
   margin: 0 auto;
+  font-weight: 600;
+  font-size: 2em;
+}
+.post_btn h1 a{
+  color:white;
+  text-decoration: none;
 }
 .post_btn_item{
   padding-left: 5px;
@@ -101,16 +110,16 @@ width: auto;
   background-color: red;
 }
 .blue{
-  background-color: rgb(187, 0, 0);
+  background-color: rgb(48, 122, 224);
 }
 .green{
   background-color: rgb(3, 211, 83);
 }
 .purple{
-  background-color: rgba(126, 0, 0, 0.484);
+  background-color: rgba(171, 0, 0);
 }
 .yellow{
-  background-color: rgb(216, 244, 6);
+  background-color: rgb(200, 226, 7);
 }
 .orange{
   background-color: rgb(194, 73, 2);
@@ -123,19 +132,23 @@ width: auto;
   color: rgb(119, 46, 0)
 }
 
-@media(min-width:518px){
-  .post_grid{
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  
-}
 table{
   width: 100%;
 }
 table tr td{
   text-align: center;
   border-bottom: 1px solid black;
+}
+
+
+@media(min-width:518px){
+  .post_grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .post_carousel_item{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
 }
 @media(min-width:768px){
   .post_grid{
@@ -145,11 +158,9 @@ table tr td{
     padding-top: 2rem;
     flex-direction: row; 
    }
-   .post_carousel_main{
-     width: 50%;
-   }
+
    .post_carousel_item{
-     grid-template-columns: repeat(2, 1fr);
+     grid-template-columns: repeat(4, 1fr);
    }
    .post_btn_item{
     max-width: 190px;
@@ -157,8 +168,12 @@ table tr td{
    }
 }
 
-@media(min-width:900px){
+@media(min-width:1040px){
   .post_carousel_item{
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .post_btn{
+    min-width: 190px;
   }
 }
+

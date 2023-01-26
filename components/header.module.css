@@ -12,6 +12,7 @@
   }
   .logo{
   background-color: white;
+  cursor: pointer;
   }
   .header text{
     font-size: 38px;

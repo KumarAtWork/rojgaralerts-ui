@@ -77,6 +77,11 @@ padding-left: 2%;
     height: 35px;
     line-height: 35px;
 }
+.other_post_title h1{
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.2em;
+}
 
 .news_headline_box{
     border: 1px solid whitesmoke;

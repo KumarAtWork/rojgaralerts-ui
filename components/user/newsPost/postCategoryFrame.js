@@ -9,8 +9,8 @@ const PostCategoryFrame = ({category, posts }) => {
             <NewsPost {...p} key={index} />
           ))}
           {
-            posts.length>5?<div className="view_more_link">
-            <Link href={"/posts/"+category}>View More</Link>
+            posts.length>3?<div className="view_more_link">
+            <Link href={"/jobs/"+category}>View More</Link>
             </div>:''}
         </div>
     </>

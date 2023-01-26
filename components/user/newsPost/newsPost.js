@@ -7,7 +7,7 @@ const NewsPost = (props) => {
         <div className={styles.news_post_title}>
           <Link
             href={
-              "/news/" +
+              "/posts/" +
               props.title.replaceAll(" ", "-") +
               "?pageId=" +
               props._id

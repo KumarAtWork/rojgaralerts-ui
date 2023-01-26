@@ -11,8 +11,9 @@
     border: 0px;
     height: 34px;
     color: white;
-    background: #077df1;
-    border-radius: 1rem;
+    background: rgb(119, 46, 0);
+    font-size: 22px;
+    border-radius: 3px 3px 3px 3px;
 }
 @media (min-width:468px) {
     .view_all_post{ 

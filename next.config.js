@@ -5,14 +5,19 @@ const nextConfig = {
   images: {
     domains: ['storage.codefast.tech'],
 },
-async rewrites() {
-  return [
-    {
-      source: '/login',
-      destination: 'http://5.181.217.75:8081/'
-    }
-  ]
+i18n:{
+  locales: ['en-us','hi-in'],
+  defaultLocale: 'en-us'
 }
+
+// async rewrites() {
+//   return [
+//     {
+//       source: '/exams',
+//       destination: 'httpsexams'
+//     }
+//   ]
+// }
 }
 
 module.exports = nextConfig

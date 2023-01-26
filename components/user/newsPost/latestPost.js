@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getAllLatestPost, getLatestPost } from "../../../services/service";
 import PostCategoryFrame from "./postCategoryFrame";
 import styles from "./latestPost.module.css"
+import Link from "next/link";
 const LatestPost = ({category,categoryTitle}) => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ const LatestPost = ({category,categoryTitle}) => {
     <>
     <div className={styles.post_grid_item}>
       <div className={styles.post_grid_item_title + " "+"main_color"}>
-      <span>{categoryTitle}</span>
+      <h1><Link href={"/jobs/"+category}>{categoryTitle}</Link></h1>
       </div>
       {!isLoading && (
         <PostCategoryFrame category={category} posts={posts}/>
