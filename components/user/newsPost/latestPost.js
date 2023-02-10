@@ -3,13 +3,15 @@ import { getAllLatestPost, getLatestPost } from "../../../services/service";
 import PostCategoryFrame from "./postCategoryFrame";
 import styles from "./latestPost.module.css"
 import Link from "next/link";
-const LatestPost = ({category,categoryTitle}) => {
+import { useRouter } from "next/router";
+const LatestPost = ({category,categoryTitle, lang}) => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
+  const {locale} = useRouter();
+console.log('Lang in latestPost is '+locale);
   useEffect(() => {
     const load = async () => {
-      const data = category!=null?await getLatestPost(category): await getAllLatestPost();
+      const data = category!=null?await getLatestPost(category,lang): await getAllLatestPost();
       if (data && data !== "Error") {
         setPosts(data.splice(0,5));
         setLoading(false);

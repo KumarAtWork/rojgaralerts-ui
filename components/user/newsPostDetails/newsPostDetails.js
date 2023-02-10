@@ -3,6 +3,7 @@ import { getNewsPost, getPost } from "../../../services/service";
 import styles from "./newsPostDetails.module.css";
 import OtherNewsPosts from "./otherNewsPosts";
 import Link from "next/link";
+import {useRouter} from "next/router";
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -18,6 +19,7 @@ const NewsPostDetails = ({ pageId }) => {
   const [newsPost, setNewsPost] = useState("");
   const [isLoading, setLoading] = useState(true);
   const [showPDF, setShowPDF] = useState(false);
+  const {locale} = useRouter();
   useEffect(() => {
     const loadData = async () => {
       const data = await getNewsPost(pageId);
@@ -43,7 +45,7 @@ const NewsPostDetails = ({ pageId }) => {
     <Head>
       <title>{newsPost.title}</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <meta name="description" content="Sarkari Jobs: Sarkarimail.com Gives Job Alert For Sarkari Jobs, Sarkari Naukri, Sarkari, Sarkari Exam"></meta>
+      <meta name="description" content="Sarkari Jobs: RojgarAlerts.in Gives Job Alert For Sarkari Jobs, Sarkari Naukri, Sarkari, Sarkari Exam"></meta>
         </Head>
       <div className={styles.news_post_details}>
         <div className={styles.headline}>
@@ -56,11 +58,18 @@ const NewsPostDetails = ({ pageId }) => {
               <SizedBox height="30px"></SizedBox>
               <div className={styles.news_body}>
                 <div className={styles.post_details}>
-                  {newsPost.posts && newsPost.board &&
+                  {locale==='en-us' && newsPost.posts && newsPost.board &&
                      <p className="para"><strong>Details : </strong>
                       {newsPost.board} Invites Applications From Eligible Candidates For {newsPost.posts}.
                       Interested Candidates Can Read Full Notification Below And Apply Online By Visiting Official Website.
                       </p>
+                    }
+                    {locale==='hi-in' && newsPost.posts && newsPost.board &&
+                     <p className="para"><strong>Details : </strong>
+                      {newsPost.board} Invites Applications From Eligible Candidates For HINDI {newsPost.posts}.
+                      Interested Candidates Can Read Full Notification Below And Apply Online By Visiting Official Website.
+                      </p>
+
                     }
                 </div>
                 <SizedBox height="20px"></SizedBox>

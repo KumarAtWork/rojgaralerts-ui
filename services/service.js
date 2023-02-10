@@ -10,9 +10,9 @@ export const getAllLatestPost = (pageNum) =>
     .get(NEWSPOST_HOST+'/posts/'+"?pageNum="+pageNum)
     .then((res) => res.data)
     .catch((err) => "Error"); 
-export const getLatestPost = (category,pageNum) =>
+export const getLatestPost = (category,lang,pageNum) =>
   axios
-    .get(NEWSPOST_HOST+'/posts/'+category+"?pageNum="+pageNum)
+    .get(NEWSPOST_HOST+'/posts/'+category+"?pageNum="+pageNum+"&lang="+lang)
     .then((res) => res.data)
     .catch((err) => "Error");            
 export const getHighlightPost = () =>

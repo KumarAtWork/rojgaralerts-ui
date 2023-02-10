@@ -158,7 +158,7 @@ const NewsPost = () => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="notification">Notifications</option>
-              <option value="upsc">UPSC Jobs</option>
+              <option value="administrative">UPSC Jobs</option>
               <option value="ssc">SSC Jobs</option>
               <option value="defence">Defence/Police Jobs</option>
               <option value="science">Science/Engineering Jobs</option>

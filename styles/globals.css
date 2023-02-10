@@ -173,7 +173,8 @@ table tr td{
     grid-template-columns: repeat(5, 1fr);
   }
   .post_btn{
-    min-width: 190px;
+    min-width: 199px;
+    padding: 25px;
   }
 }
 

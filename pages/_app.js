@@ -8,8 +8,10 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { GOOGLE_RECAPTCHA_SITE_KEY } from "../constants";
 import Head from "next/head";
 import Script from "next/script";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {  
+  const {locale} = useRouter();
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={GOOGLE_RECAPTCHA_SITE_KEY}
@@ -31,7 +33,7 @@ function MyApp({ Component, pageProps }) {
        </Head>
         
         <div className="container_main">
-          <Header></Header>
+          <Header lang={locale}></Header>
           <Provider store={store}>
             <Component {...pageProps} />
           </Provider>
